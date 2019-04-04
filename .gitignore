@@ -1,0 +1,17 @@
+
+.idea/
+.vs/
+.vscode/
+.gradle/
+gradle/
+gradlew*
+bin/
+build/
+node_modules/
+out/
+target/
+var/
+vendor/
+*.iml
+*.ipr
+*.iws*
