@@ -7,7 +7,7 @@ import java.util.*;
 @Entity
 public class Person {
 
-  @Id @GeneratedValue
+  @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Integer id;
 
   private String firstName;

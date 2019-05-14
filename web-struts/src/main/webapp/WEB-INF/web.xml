@@ -1,0 +1,12 @@
+<web-app>
+
+  <!-- NOT FOR PROD / JSP HOT RELOAD -->
+  <servlet>
+    <servlet-name>jsp</servlet-name>
+    <init-param>
+      <param-name>development</param-name>
+      <param-value>true</param-value>
+    </init-param>
+  </servlet>
+
+</web-app>
