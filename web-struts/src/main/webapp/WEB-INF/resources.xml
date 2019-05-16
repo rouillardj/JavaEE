@@ -1,13 +1,13 @@
 <!-- http://tomee.apache.org/application-resources -->
 <Resources>
 
-  <!-- NOT FOR PROD -->
-  <Resource type="DataSource" id="jdbc/Default" >
-    JtaManaged =true
-    JdbcDriver =com.mysql.jdbc.Driver
-    JdbcUrl    =jdbc:mysql://localhost:3306/test
-    UserName   =root
-    Password   =
-  </Resource>
+    <!-- NOT FOR PROD -->
+    <Resource type="DataSource" id="jdbc/Default" >
+        JtaManaged =true
+        JdbcDriver =com.mysql.jdbc.Driver
+        JdbcUrl    =jdbc:mysql://localhost:3306/test
+        UserName   =root
+        Password   =
+    </Resource>
 
 </Resources>

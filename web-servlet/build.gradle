@@ -17,4 +17,5 @@ dependencies {
   compileOnly 'javax:javaee-api:7.0'
   compileOnly 'jstl:jstl:1.2'
   runtime 'mysql:mysql-connector-java:5.1.47'
+    compile 'org.apache.struts:struts2-convention-plugin:2.5.20'
 }

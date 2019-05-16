@@ -1,7 +1,6 @@
-package fr.imie.contact.servlets;
+package fr.imie.contact.action;
 
 import fr.imie.contact.entities.BankAccount;
-import fr.imie.contact.entities.Person;
 import fr.imie.contact.repositories.BankAccountRepository;
 import fr.imie.contact.repositories.PersonRepository;
 
@@ -16,7 +15,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 @WebServlet("/transfer/*")
-public class TransferServlet extends HttpServlet {
+public class TransferAction extends HttpServlet {
 
     @Inject
     private PersonRepository personRepository;

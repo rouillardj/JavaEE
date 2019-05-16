@@ -1,40 +1,43 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@page pageEncoding="utf-8" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-    <meta charset="utf-8" />
     <title>Transfer</title>
 </head>
 <body>
-<c:url var="save" value="/transfer/save" />
 <form method="post" action="${save}">
-<table>
-    <thead>
-    <tr>
-        <th>Compte de base</th>
-        <th>Compte Destinataire</th>
-        <th>Montant</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-    <td><select name="debit">
-        <option></option>
-        <c:forEach var="account" items="${accounts}" >
-            <option value="${account.id}" >${account.owner.firstName} ${account.owner.lastName}</option>
-        </c:forEach>
-    </select></td>
-    <td><select name="credit" >
-        <option></option>
-        <c:forEach var="account" items="${accounts}" >
-            <option value="${account.id}" >${account.owner.firstName} ${account.owner.lastName}</option>
-        </c:forEach>
-    </select></td>
-        <td><input name="amount" /></td>
-        <td><input type="submit" /></td>
-    </tr>
-    </tbody>
-</table>
+    <table>
+        <thead>
+        <tr>
+            <th>Compte émetteur</th>
+            <th>Compte bénéficiare</th>
+            <th>Montant</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td><select name="debitAccount">
+                <option></option>
+                <c:forEach var="account" items="${accounts}">
+                    <option value="${account.id}">${account.owner.firstName} ${account.owner.lastName} - ${account.balance}€</option>
+                </c:forEach>
+            </select></td>
+            <td><select name="creditAccount">
+                <option></option>
+                <c:forEach var="account" items="${accounts}">
+                    <option value="${account.id}">${account.owner.firstName} ${account.owner.lastName} - ${account.balance}€</option>
+                </c:forEach>
+            </select></td>
+            <td><input name="ammount" /></td>
+            <td><input type="submit" /></td>
+        </tr>
+        </tbody>
+    </table>
 </form>
+<c:url var="application" value="/" />
+<a href="${application}"> <input type="button" value="Accueil"></a>
+<a href="${application}bankaccount"> <input type="button" value="Comptes Bancaires"></a>
+<a href="${application}person"> <input type="button" value="Personnes"></a>
+</body>
 </body>
 </html>

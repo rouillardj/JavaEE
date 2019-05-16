@@ -1,5 +1,6 @@
-package fr.imie.contact.servlets;
+package fr.imie.contact.action;
 
+import com.opensymphony.xwork2.ActionSupport;
 import fr.imie.contact.*;
 import fr.imie.contact.entities.*;
 import fr.imie.contact.repositories.*;
@@ -13,10 +14,30 @@ import java.time.*;
 import java.util.*;
 
 @WebServlet("/person/*")
-public class PersonServlet extends HttpServlet {
+public class PersonAction extends ActionSupport {
 
   @Inject
   private PersonRepository repository;
+
+  private Person person;
+
+    public Person getPerson() {
+        return person;
+    }
+
+    public void setPerson(Person person) {
+        this.person = person;
+    }
+
+    public String save() {
+      return SUCCESS;
+    }
+    public String deleteById() {
+        return SUCCESS;
+    }
+    public String findAll() {
+        return SUCCESS;
+    }
 
   protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

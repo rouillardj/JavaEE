@@ -1,8 +1,7 @@
-package fr.imie.contact.servlets;
+package fr.imie.contact.action;
 
 import fr.imie.contact.entities.*;
 import fr.imie.contact.repositories.*;
-import javafx.util.converter.BigDecimalStringConverter;
 
 import javax.inject.*;
 import javax.servlet.*;
@@ -13,7 +12,7 @@ import java.math.BigDecimal;
 import java.util.*;
 
 @WebServlet("/bankaccount/*")
-public class BankAccountServlet extends HttpServlet {
+public class BankAccountAction extends HttpServlet {
 
   @Inject
   private BankAccountRepository bankAccountRepository;

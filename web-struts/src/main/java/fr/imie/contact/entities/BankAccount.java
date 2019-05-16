@@ -6,18 +6,34 @@ import java.math.*;
 @Entity
 public class BankAccount {
 
-  @Id @GeneratedValue
-  private Integer id;
+    @Id @GeneratedValue
+    private Integer id;
 
-  private BigDecimal balance;
+    private BigDecimal balance;
 
-  @ManyToOne @JoinColumn(nullable = false)
-  private Person owner;
+    @ManyToOne @JoinColumn(nullable = false)
+    private Person owner;
 
-  // region // constructors getters setters
+    // region // constructors getters setters
 
-  public BankAccount() {
-  }
+    public BankAccount() {
+    }
+
+    public BigDecimal getBalance() {
+        return balance;
+    }
+
+    public void setBalance(BigDecimal balance) {
+        this.balance = balance;
+    }
+
+    public Person getOwner() {
+        return owner;
+    }
+
+    public void setOwner(Person owner) {
+        this.owner = owner;
+    }
 
     public Integer getId() {
         return id;
@@ -27,22 +43,6 @@ public class BankAccount {
         this.id = id;
     }
 
-    public BigDecimal getBalance() {
-    return balance;
-  }
-
-  public void setBalance(BigDecimal balance) {
-    this.balance = balance;
-  }
-
-  public Person getOwner() {
-    return owner;
-  }
-
-  public void setOwner(Person owner) {
-    this.owner = owner;
-  }
-
-  // endregion
+    // endregion
 
 }

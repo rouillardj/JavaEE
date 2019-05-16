@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+    <package name="default" extends="struts-default">
+        <action name="person_save" class="fr.imie.contact.actions.PersonAction" method="save">
+            <result name="input">/WEB-INF/views/person.jsp</result>
+            <result name="success" type="redirectAction">person_all</result>
+        </action>
+        <action name="person_delete" class="fr.imie.contact.actions.PersonAction" method="deleteById">
+            <result name="success" type="redirectAction">person_all</result>
+        </action>
+        <action name="person_all" class="fr.imie.contact.actions.PersonAction" method="findAll">
+            <result name="success">/WEB-INF/views/person.jsp</result>
+        </action>
+        <action name="person_edit" class="fr.imie.contact.actions.PersonAction" method="findById">
+        <result name="success">/WEB-INF/views/person.jsp</result>
+    </action>
+    </package>
+</struts>

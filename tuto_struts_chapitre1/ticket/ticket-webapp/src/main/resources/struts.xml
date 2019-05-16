@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+    <package name="default" extends="struts-default">
+        <default-action-ref name="index" />
+
+        <!-- Results globaux -->
+        <global-results>
+            <result name="error">/jsp/error.jsp</result>
+        </global-results>
+
+        <action name="index">
+            <result>/jsp/index.jsp</result>
+        </action>
+
+        <action name="projet_list"
+                class="org.example.demo.ticket.webapp.action.GestionProjetAction"
+                method="doList">
+            <result>/jsp/projet/list.jsp</result>
+        </action>
+
+        <action name="utilisateur_detail"
+                class="org.example.demo.ticket.webapp.action.GestionUtilisateurAction"
+                method="doDetail">
+            <result>/jsp/utilisateur/detail.jsp</result>
+        </action>
+
+        <!-- Action affichant le détail d'un projet -->
+        <action name="projet_detail"
+                class="org.example.demo.ticket.webapp.action.GestionProjetAction"
+                method="doDetail">
+
+            <interceptor-ref name="store">
+                <param name="operationMode">RETRIEVE</param>
+            </interceptor-ref>
+            <interceptor-ref name="defaultStack" />
+
+            <result>/jsp/projet/detail.jsp</result>
+        </action>
+
+        <!-- Actions permettant de créer un projet -->
+        <action name="projet_new"
+                class="org.example.demo.ticket.webapp.action.GestionProjetAction"
+                method="doCreate">
+
+            <interceptor-ref name="store">
+                <param name="operationMode">STORE</param>
+            </interceptor-ref>
+            <interceptor-ref name="defaultStack" />
+
+            <result name="input">/jsp/projet/new.jsp</result>
+            <result name="success" type="redirectAction">
+                <param name="actionName">projet_detail</param>
+                <param name="id">${projet.id}</param>
+            </result>
+        </action>
+    </package>
+</struts>

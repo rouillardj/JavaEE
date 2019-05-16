@@ -1,6 +1,7 @@
 <%@page pageEncoding="utf-8" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <html>
 <head>
   <link rel="stylsheet" type="text/css" href="../css/style.css">
@@ -8,8 +9,8 @@
   <title></title>
 </head>
 <body>
-<c:url var="context" value="/person/" />
-<form method="post" action="${context}save">
+
+<s:form method="post" action="person_save">
   <table>
     <thead>
     <tr>
@@ -35,12 +36,13 @@
     <c:forEach var="person" items="${persons}">
       <c:if test="${person.id eq id}">
         <tr>
-          <td><input name="id" type="hidden" value="${person.id}"></td>
+          <td><s:hidden name="id" type="hidden" value="${person.id}"></td>
           <td><input name="firstName" value="${person.firstName}"></td>
           <td><input name="lastName" value="${person.lastName}"></td>
           <td><input name="email" value="${person.email}"></td>
           <fmt:parseDate value="${person.birthDate}" pattern="yyyy-MM-dd" var="parsedDate" type="date"/>
           <fmt:formatDate value="${parsedDate}" type="date" pattern="dd/MM/yyyy" var="goodDate"/>
+          <td><s:datetextfield name="birthdate" value="${person.birthDate}" format="dd/MM/yyyy"></td>
           <td><input name="birthDate" value="${goodDate}"></td>
           <td><a href="${context}">Annuler</a></td>
           <td><input type="submit" /></td>
@@ -60,7 +62,7 @@
     </c:forEach>
     </tbody>
   </table>
-</form>
+</s:form>
 
 </body>
 </html>
